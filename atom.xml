@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://er0001231.github.io</id>
+    <title>小叶的博客</title>
+    <updated>2023-02-06T08:56:59.590Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://er0001231.github.io"/>
+    <link rel="self" href="https://er0001231.github.io/atom.xml"/>
+    <subtitle> 来自某苦逼学生——小叶的博客</subtitle>
+    <logo>https://er0001231.github.io/images/avatar.png</logo>
+    <icon>https://er0001231.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2023, 小叶的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[NAS-二号线路加入方法 小叶]]></title>
+        <id>https://er0001231.github.io/post/nas-er-hao-xian-lu-jia-ru-fang-fa-xiao-xie/</id>
+        <link href="https://er0001231.github.io/post/nas-er-hao-xian-lu-jia-ru-fang-fa-xiao-xie/">
+        </link>
+        <updated>2023-01-26T13:00:50.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1]]></title>
+        <id>https://er0001231.github.io/post/1/</id>
+        <link href="https://er0001231.github.io/post/1/">
+        </link>
+        <updated>2023-01-26T12:44:45.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://er0001231.github.io/post/hello-gridea/</id>
+        <link href="https://er0001231.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></content>
+    </entry>
+</feed>
