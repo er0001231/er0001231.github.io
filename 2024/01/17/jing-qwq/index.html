@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="CN_ch">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/hexojs/hexo/discussions/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/hexojs/hexo/discussions/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/hexojs/hexo/discussions/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/hexojs/hexo/discussions/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/hexojs/hexo/discussions/css/main.css">
+
+
+<link rel="stylesheet" href="/hexojs/hexo/discussions/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/hexojs/hexo/discussions/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","valine":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="总之,分享一下了ps:博客崩了,补档纯html+css+js，质量不好请包容，主要抄书上的css 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980">
+<meta property="og:type" content="article">
+<meta property="og:title" content="静态网盘代码小分享qwq">
+<meta property="og:url" content="https://github.com/hexojs/hexo/discussions/2024/01/17/jing-qwq/index.html">
+<meta property="og:site_name" content="小叶qwq的博客">
+<meta property="og:description" content="总之,分享一下了ps:博客崩了,补档纯html+css+js，质量不好请包容，主要抄书上的css 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980">
+<meta property="og:locale" content="cn_CH">
+<meta property="article:published_time" content="2024-01-17T07:38:08.000Z">
+<meta property="article:modified_time" content="2024-01-17T07:55:47.904Z">
+<meta property="article:author" content="小叶">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/hexojs/hexo/discussions/2024/01/17/jing-qwq/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'CN_ch'
+  };
+</script>
+
+  <title>静态网盘代码小分享qwq | 小叶qwq的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/hexojs/hexo/discussions/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小叶qwq的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-主页">
+
+    <a href="/hexojs/hexo/discussions/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
+
+  </li>
+        <li class="menu-item menu-item-关于">
+
+    <a href="/hexojs/hexo/discussions/2019/01/25/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/hexojs/hexo/discussions/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="CN_ch">
+    <link itemprop="mainEntityOfPage" href="https://github.com/hexojs/hexo/discussions/2024/01/17/jing-qwq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexojs/hexo/discussions/images/avatar.gif">
+      <meta itemprop="name" content="小叶">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小叶qwq的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          静态网盘代码小分享qwq
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-01-17 15:38:08 / Modified: 15:55:47" itemprop="dateCreated datePublished" datetime="2024-01-17T15:38:08+08:00">2024-01-17</time>
+            </span>
+
+          
+            <span id="/hexojs/hexo/discussions/2024/01/17/jing-qwq/" class="post-meta-item leancloud_visitors" data-flag-title="静态网盘代码小分享qwq" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/hexojs/hexo/discussions/2024/01/17/jing-qwq/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/hexojs/hexo/discussions/2024/01/17/jing-qwq/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>总之,分享一下了<br>ps:博客崩了,补档<br><strong>纯html+css+js，质量不好请包容，主要抄书上的css</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;zh&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">&lt;title&gt;小叶的网盘下载页面&lt;/title&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    /* 基本样式 ，还有，采用了先进的格式整理新奇玩意来优化我这破旧不堪的可读性极差的代码（躺*/</span><br><span class="line">    body &#123;</span><br><span class="line">        font-family: &#x27;Arial&#x27;, sans-serif;</span><br><span class="line">        background: #f4f4f4;</span><br><span class="line">        margin: 0;</span><br><span class="line">        padding: 0;</span><br><span class="line">        overflow-x: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    .navbar &#123;</span><br><span class="line">        background: #333;</span><br><span class="line">        color: white;</span><br><span class="line">        padding: 10px 20px;</span><br><span class="line">        text-align: center;</span><br><span class="line">    &#125;</span><br><span class="line">    .container &#123;</span><br><span class="line">        width: 80%;</span><br><span class="line">        margin: 2rem auto;</span><br><span class="line">        overflow: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    /* 文件容器样式 */</span><br><span class="line">    .file-container &#123;</span><br><span class="line">        background: white;</span><br><span class="line">        border-radius: 10px;</span><br><span class="line">        box-shadow: 0 2px 5px rgba(0,0,0,0.2);</span><br><span class="line">        padding: 20px;</span><br><span class="line">        margin-bottom: 20px;</span><br><span class="line">        animation: fadeIn 0.5s ease-in-out;</span><br><span class="line">    &#125;</span><br><span class="line">    .file-header &#123;</span><br><span class="line">        display: flex;</span><br><span class="line">        justify-content: space-between;</span><br><span class="line">        align-items: center;</span><br><span class="line">        margin-bottom: 20px;</span><br><span class="line">    &#125;</span><br><span class="line">    .file-path &#123;</span><br><span class="line">        font-size: 0.9rem;</span><br><span class="line">        color: #666;</span><br><span class="line">    &#125;</span><br><span class="line">    .file &#123;</span><br><span class="line">        display: flex;</span><br><span class="line">        align-items: center;</span><br><span class="line">        justify-content: space-between;</span><br><span class="line">        padding: 10px;</span><br><span class="line">        margin-bottom: 10px;</span><br><span class="line">        border: 1px solid #ddd;</span><br><span class="line">        border-radius: 8px;</span><br><span class="line">        transition: transform 0.3s ease-in-out;</span><br><span class="line">    &#125;</span><br><span class="line">    .file:hover &#123;</span><br><span class="line">        transform: translateY(-3px);</span><br><span class="line">        box-shadow: 0 2px 5px rgba(0,0,0,0.2);</span><br><span class="line">    &#125;</span><br><span class="line">    .file-info &#123;</span><br><span class="line">        flex-grow: 1;</span><br><span class="line">    &#125;</span><br><span class="line">    .file-name &#123;</span><br><span class="line">        font-weight: bold;</span><br><span class="line">        margin-right: 20px;</span><br><span class="line">    &#125;</span><br><span class="line">    .file-date &#123;</span><br><span class="line">        color: #999;</span><br><span class="line">    &#125;</span><br><span class="line">    .file-download &#123;</span><br><span class="line">        text-decoration: none;</span><br><span class="line">        color: white;</span><br><span class="line">        background: #5cb85c;</span><br><span class="line">        padding: 8px 15px;</span><br><span class="line">        border-radius: 5px;</span><br><span class="line">        transition: background-color 0.3s ease-in-out;</span><br><span class="line">    &#125;</span><br><span class="line">    .file-download:hover &#123;</span><br><span class="line">        background: #4cae4c;</span><br><span class="line">    &#125;</span><br><span class="line">    .clicked &#123;</span><br><span class="line">        animation: clickAnimation 0.5s ease;</span><br><span class="line">    &#125;</span><br><span class="line">    @keyframes fadeIn &#123;</span><br><span class="line">        from &#123; opacity: 0; &#125;</span><br><span class="line">        to &#123; opacity: 1; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @keyframes clickAnimation &#123;</span><br><span class="line">        0% &#123; transform: scale(1); &#125;</span><br><span class="line">        50% &#123; transform: scale(1.05); &#125;</span><br><span class="line">        100% &#123; transform: scale(1); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;navbar&quot;&gt;</span><br><span class="line">    &lt;h1&gt;小叶的静态网盘&lt;/h1&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;file-container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;file-header&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;file-path&quot;&gt;/我的文件/&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;file&quot; id=&quot;file1&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;file-info&quot;&gt;</span><br><span class="line">                &lt;span class=&quot;file-name&quot;&gt;WWS.zip&lt;/span&gt;</span><br><span class="line">                &lt;span class=&quot;file-date&quot;&gt;上传时间：2023-XX-XX&lt;/span&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;a href=&quot;一个不存在的文件qwq.zip&quot; class=&quot;file-download&quot; download&gt;下载&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;!-- 在这里复制代码来增加更多文件 --&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 当页面加载完成后添加事件监听器</span><br><span class="line">document.addEventListener(&#x27;DOMContentLoaded&#x27;, function() &#123;</span><br><span class="line">    var downloadButtons = document.querySelectorAll(&#x27;.file-download&#x27;);</span><br><span class="line">    downloadButtons.forEach(function(button) &#123;</span><br><span class="line">        button.addEventListener(&#x27;click&#x27;, function() &#123;</span><br><span class="line">            var fileItem = button.parentElement;</span><br><span class="line">            fileItem.classList.add(&#x27;clicked&#x27;);</span><br><span class="line">            setTimeout(function() &#123;</span><br><span class="line">                fileItem.classList.remove(&#x27;clicked&#x27;);</span><br><span class="line">            &#125;, 500);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>``
+</code></pre>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小叶的网盘下载页面</title>
+<style>
+    /* 基本样式 ，还有，采用了先进的格式整理新奇玩意来优化我这破旧不堪的可读性极差的代码（躺*/
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    .navbar {
+        background: #333;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+    }
+    .container {
+        width: 80%;
+        margin: 2rem auto;
+        overflow: hidden;
+    }
+    /* 文件容器样式 */
+    .file-container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        padding: 20px;
+        margin-bottom: 20px;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+    .file-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .file-path {
+        font-size: 0.9rem;
+        color: #666;
+    }
+    .file {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        transition: transform 0.3s ease-in-out;
+    }
+    .file:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .file-info {
+        flex-grow: 1;
+    }
+    .file-name {
+        font-weight: bold;
+        margin-right: 20px;
+    }
+    .file-date {
+        color: #999;
+    }
+    .file-download {
+        text-decoration: none;
+        color: white;
+        background: #5cb85c;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out;
+    }
+    .file-download:hover {
+        background: #4cae4c;
+    }
+    .clicked {
+        animation: clickAnimation 0.5s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes clickAnimation {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1>小叶的静态网盘</h1>
+</div>
+
+<div class="container">
+    <div class="file-container">
+        <div class="file-header">
+            <div class="file-path">/我的文件/</div>
+        </div>
+        <div class="file" id="file1">
+            <div class="file-info">
+                <span class="file-name">WWS.zip</span>
+                <span class="file-date">上传时间：2024-XX-XX</span>
+            </div>
+            <a href="一个不存在的文件qwq.zip" class="file-download" download>下载</a>
+        </div>
+        <!-- 在这里复制代码来增加更多文件 -->
+    </div>
+</div>
+
+<script>
+// 当页面加载完成后添加事件监听器
+document.addEventListener('DOMContentLoaded', function() {
+    var downloadButtons = document.querySelectorAll('.file-download');
+    downloadButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var fileItem = button.parentElement;
+            fileItem.classList.add('clicked');
+            setTimeout(function() {
+                fileItem.classList.remove('clicked');
+            }, 500);
+        });
+    });
+});
+</script>
+
+</body>
+</html>
+ ```
+
+
+    
+<p>  没了qwq</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/hexojs/hexo/discussions/2023/01/26/nas-er-hao-xian-lu-jia-ru-fang-fa-xiao-xie/" rel="prev" title="NAS-二号线路加入方法 小叶">
+      <i class="fa fa-chevron-left"></i> NAS-二号线路加入方法 小叶
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/hexojs/hexo/discussions/2024/01/17/oruuo/" rel="next" title="|ू･ω･` )">
+      |ू･ω･` ) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">小叶的静态网盘</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">小叶</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/hexojs/hexo/discussions/archives">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/er0001231" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;er0001231"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:er_0001231@163.com" title="E-Mail → mailto:er_0001231@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小叶</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":null,"app_key":null,"server_url":"https://4y8onqqa.lc-cn-n1-shared.com","security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/hexojs/hexo/discussions/lib/anime.min.js"></script>
+  <script src="/hexojs/hexo/discussions/lib/velocity/velocity.min.js"></script>
+  <script src="/hexojs/hexo/discussions/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/hexojs/hexo/discussions/js/utils.js"></script>
+
+<script src="/hexojs/hexo/discussions/js/motion.js"></script>
+
+
+<script src="/hexojs/hexo/discussions/js/schemes/pisces.js"></script>
+
+
+<script src="/hexojs/hexo/discussions/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '4Y8oNQqA2amUwgrXBNsuZIn1-gzGzoHsz',
+      appKey     : 'aA3twnLMtC2INswkf1b7RmKU',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
